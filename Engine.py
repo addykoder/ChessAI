@@ -117,7 +117,7 @@ class Board:
         return Board.board
 
     def draw_board(pyg, display, dim):
-        block = int(dim / 8)
+        block = size
         cnt = 0
         for i in range(8):
             for j in range(8):
@@ -147,7 +147,7 @@ class Board:
             display.blit(piece,(x-32,y-32))     # we are blitting at -32 because the size of piece is 64x64 so to keep it in centre we have to do so
 
     # this method will draw a transparent green square where the piece tends to go
-    def draw_notifier(x,y,display,pygame,to):
+    def draw_notifier(x,y,display,pygame,to,activated):
 
         if to:
             xx,yy=helper.fromAxis(x,y)
@@ -155,10 +155,11 @@ class Board:
             #pygame.draw.rect(display, notifierColor, (xx*size,yy*size,size,size))
 
             # this draws a transparent rectangle on the board
-            display.blit(notifierColor,(xx*size,yy*size,size,size))
+            # display.blit(notifierColor,(xx*size,yy*size,size,size))
 
             # this draw a circle in between
-            # display.blit(pygame.image.load("notifier.png"),(((xx*size)+(size/2))-32,(yy*size)+(size/2)-32))
+            if helper.fromIndex(yy,xx) in activated:
+                display.blit(pygame.image.load("notifier.png"),(((xx*size)+(size/2))-32,(yy*size)+(size/2)-32))
 
     # This method is used so the live chance pieces will blit over the notifier
     def draw_pieces_overNotifier(display, board,chance):
@@ -176,6 +177,13 @@ class Board:
                     lst.append(board[i][j])
                 board2.append(lst)
         Board.draw_pieces(display,board2)
+
+    def draw_activated(display,ACboard):
+        for i in ACboard:
+            x,y=helper.toIndex(i)
+            xx,yy=helper.toAxis(x,y)
+            display.blit(Pieces.ac,((yy+(size/2)-32),((xx+(size/2)-32))))
+
 
 
 
@@ -210,7 +218,7 @@ class Moves:
                     if board[fy-2][fx] == 0:
                         available.append(helper.fromIndex(fy-2,fx))
 
-            print(available)
+            return available
 
 
 

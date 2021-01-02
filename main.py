@@ -9,8 +9,9 @@ class main:
 
         Board.draw_pieces(display, board)
 
-        Board.draw_notifier(x, y, display, pygame, showNotifier)
+        Board.draw_activated(display,activatedBoard)
 
+        Board.draw_notifier(x, y, display, pygame, showNotifier,activatedBoard)
 
         Board.draw_elevated(x,y,piece,display)
 
@@ -36,7 +37,7 @@ class main:
 
 
     def onMouseDown(x,y,board):
-        global piece,activatedBlock,showNotifier
+        global piece,activatedBlock,showNotifier,activatedBoard
 
         # this will make the touched block the activated block we will make changes to it afterwords
         xx,yy=helper.fromAxis(y,x)  # we have passes flipped x and y because in index it is so as done
@@ -46,12 +47,13 @@ class main:
         fy,fx=helper.fromAxis(x,y)
         piece=board[fx][fy]
         board[fx][fy]=0
-        Moves.Available.dpawn(pygame,board,x//size,y//size)
+
+        activatedBoard=Moves.Available.dpawn(pygame,board,x//size,y//size)
         #if helper.toShowNotifier(board,x,y,chance):
         showNotifier=True
 
     def onMouseUp(x,y,board):
-        global piece,showNotifier
+        global piece,showNotifier,activatedBoard
 
         if activatedBlock != 0:
             fx,fy=helper.toIndex(activatedBlock)
@@ -60,6 +62,7 @@ class main:
                 board[ty][tx]=piece
             piece=0
         showNotifier=False
+        activatedBoard=[]
     def onKeyDown(key):
         pass
     def startGame(x=0):
