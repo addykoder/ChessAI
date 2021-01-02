@@ -3,6 +3,8 @@ class main:
     # this method is taking board because it is been modified and will be null if not passed
     def onEveryFrame(board):
 
+        global activatedBoard
+
         x,y=pygame.mouse.get_pos()
         # drawing the board and pieces
         Board.draw_board(pygame, display, dimension)
@@ -44,11 +46,13 @@ class main:
 
         activatedBlock=helper.fromIndex(xx,yy)
 
+        activatedBoard = Moves.Available.checkAvailable(board, x // size, y // size)
+
         fy,fx=helper.fromAxis(x,y)
         piece=board[fx][fy]
         board[fx][fy]=0
 
-        activatedBoard=Moves.Available.dpawn(pygame,board,x//size,y//size)
+
         #if helper.toShowNotifier(board,x,y,chance):
         showNotifier=True
 
@@ -64,12 +68,16 @@ class main:
         showNotifier=False
         activatedBoard=[]
     def onKeyDown(key):
-        pass
+
+        # resetting the board if the r key is pressed
+        if key == pygame.K_r:
+            return Board.create_raw_board()
+
     def startGame(x=0):
         # Initializing and constructing all instantiated modules and variables
         main.initializePygame()
-        piece = Pieces(pygame, player)  # the player variable passes the main human player's color of pieces
-        board = Board.create_raw_board(piece)  # getting the raw initial board in the board variable
+        #piece = Pieces(pygame, player)  # the player variable passes the main human player's color of pieces
+        board = Board.create_raw_board()  # getting the raw initial board in the board variable
 
         while True:
 
@@ -85,7 +93,7 @@ class main:
                     main.onMouseUp(event.pos[0],event.pos[1],board)
                 if event.type == pygame.KEYDOWN:
                     # This method contains all code to perform key shortcuts during play
-                    main.onKeyDown(event.key)
+                    board=main.onKeyDown(event.key)
 
 
             main.onEveryFrame(board)

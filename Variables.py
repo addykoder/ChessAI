@@ -1,4 +1,5 @@
 import pygame
+
 #   This class has all the variables used in the full project you can edit these
 #   variables as per your need to see changes in your game
 

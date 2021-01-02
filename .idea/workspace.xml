@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5f2bb15-a023-4660-9638-e4efec711dd9" name="Default Changelist" comment="">
+    <list default="true" id="b5f2bb15-a023-4660-9638-e4efec711dd9" name="Default Changelist" comment="added the notifier functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/Engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/Variables.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notifier.png" beforeDir="false" afterPath="$PROJECT_DIR$/notifier.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +139,30 @@
       <option name="presentableId" value="Default" />
       <updated>1608966723350</updated>
     </task>
+    <task id="LOCAL-00001" summary="added the notifier functionality">
+      <created>1609587155019</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1609587155019</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added the notifier functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="added the notifier functionality" />
   </component>
   <component name="WindowStateProjectService">
     <state x="838" y="438" key="Github.ShareDialog" timestamp="1609514334931">
@@ -132,42 +173,42 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="767" y="243" key="Github.UntrackedFilesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1609514361337" />
-    <state width="1899" height="294" key="GridCell.Tab.0.bottom" timestamp="1609587094272">
+    <state width="1899" height="294" key="GridCell.Tab.0.bottom" timestamp="1609592832881">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="294" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1609587094272" />
-    <state width="1899" height="294" key="GridCell.Tab.0.center" timestamp="1609587094272">
+    <state width="1899" height="294" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1609592832881" />
+    <state width="1899" height="294" key="GridCell.Tab.0.center" timestamp="1609592832881">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="294" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1609587094272" />
-    <state width="1899" height="294" key="GridCell.Tab.0.left" timestamp="1609587094272">
+    <state width="1899" height="294" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1609592832881" />
+    <state width="1899" height="294" key="GridCell.Tab.0.left" timestamp="1609592832881">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="294" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1609587094272" />
-    <state width="1899" height="294" key="GridCell.Tab.0.right" timestamp="1609587094272">
+    <state width="1899" height="294" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1609592832881" />
+    <state width="1899" height="294" key="GridCell.Tab.0.right" timestamp="1609592832881">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="294" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1609587094272" />
-    <state width="1899" height="638" key="GridCell.Tab.1.bottom" timestamp="1609584939110">
+    <state width="1899" height="294" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1609592832881" />
+    <state width="1899" height="494" key="GridCell.Tab.1.bottom" timestamp="1609588297287">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="638" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1609584939110" />
-    <state width="1899" height="638" key="GridCell.Tab.1.center" timestamp="1609584939110">
+    <state width="1899" height="494" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1609588297287" />
+    <state width="1899" height="494" key="GridCell.Tab.1.center" timestamp="1609588297287">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="638" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1609584939110" />
-    <state width="1899" height="638" key="GridCell.Tab.1.left" timestamp="1609584939110">
+    <state width="1899" height="494" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1609588297287" />
+    <state width="1899" height="494" key="GridCell.Tab.1.left" timestamp="1609588297287">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="638" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1609584939110" />
-    <state width="1899" height="638" key="GridCell.Tab.1.right" timestamp="1609584939110">
+    <state width="1899" height="494" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1609588297287" />
+    <state width="1899" height="494" key="GridCell.Tab.1.right" timestamp="1609588297287">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="638" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1609584939110" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1609514379376">
+    <state width="1899" height="494" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1609588297287" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1609587163545">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1609514379376" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1609587163545" />
     <state x="564" y="150" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1608973691908">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

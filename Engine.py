@@ -1,5 +1,11 @@
 from Variables import *
 import pygame
+
+
+
+
+
+
 #   NOTES
 
 #   The MAIN CLASS
@@ -13,69 +19,108 @@ import pygame
 
 
 
-
 class Pieces:
-    wk, wq, wb, wn, wp, wr = 0, 0, 0, 0, 0, 0  # these variables are been initialized as global class variable using
-    bk, bq, bb, bn, bp, br = 0, 0, 0, 0, 0, 0  # the value 0 which will later be initialized by pygame.surface image
-    ac = 0  # this will be initialized by a green dot image to show available steps available in chess
+    class dpawn:
+        name='dpawn'
+        point=1
+        if player=='w':
+            drawable = pygame.image.load("W_Pawn.png")
+        else :
+            drawable = pygame.image.load("B_Pawn.png")
+    class upawn:
+        name = 'upawn'
+        point = -1
+        if player == 'b':
+            drawable = pygame.image.load("W_Pawn.png")
+        else:
+            drawable = pygame.image.load("B_Pawn.png")
+
+    class dking:
+        name= 'dking'
+        point=200
+        if player=='w':
+            drawable=pygame.image.load("W_King.png")
+        else :
+            drawable=pygame.image.load("B_King.png")
+    class uking:
+        name = 'uking'
+        point = -200
+        if player == 'b':
+            drawable = pygame.image.load("W_King.png")
+        else:
+            drawable = pygame.image.load("B_King.png")
+
+    class dqueen:
+        name='dqueen'
+        point=8
+        if player=='w':
+            drawable=pygame.image.load("W_Queen.png")
+        else:
+            drawable=pygame.image.load("B_Queen.png")
+    class uqueen:
+        name = 'uqueen'
+        point = -8
+        if player == 'b':
+            drawable = pygame.image.load("W_Queen.png")
+        else:
+            drawable = pygame.image.load("B_Queen.png")
+
+    class drook:
+        name='drook'
+        point=5
+        if player=='w':
+            drawable=pygame.image.load("W_Rook.png")
+        else :
+            drawable = pygame.image.load("B_Rook.png")
+    class urook:
+        name = 'urook'
+        point = -5
+        if player == 'b':
+            drawable = pygame.image.load("W_Rook.png")
+        else:
+            drawable = pygame.image.load("B_Rook.png")
+
+    class dbishop:
+        name = 'dbishop'
+        point = 3
+        if player == 'w':
+            drawable = pygame.image.load("W_Bishop.png")
+        else:
+            drawable = pygame.image.load("B_Bishop.png")
+    class ubishop:
+        name = 'ubishop'
+        point = -3
+        if player == 'b':
+            drawable = pygame.image.load("W_Bishop.png")
+        else:
+            drawable = pygame.image.load("B_Bishop.png")
+
+    class dknight:
+        name='dknight'
+        point=3
+        if player == 'w':
+            drawable = pygame.image.load("W_Knight.png")
+        else:
+            drawable = pygame.image.load("B_Knight.png")
+    class uknight:
+        name = 'uknight'
+        point = -3
+        if player == 'b':
+            drawable = pygame.image.load("W_Knight.png")
+        else:
+            drawable = pygame.image.load("B_Knight.png")
+
+    ac= pygame.image.load("activated.png")
+
+    blacks = [upawn,uking,uqueen,urook,ubishop,uknight]
+    whites = [dpawn,dking,dqueen,drook,dbishop,dknight]
+
+    if player == 'b':
+        whites,blacks=blacks,whites
 
 
-    wk = pygame.image.load("W_King.png")
-    wq = pygame.image.load("W_Queen.png")
-    wb = pygame.image.load("W_Bishop.png")
-    wn = pygame.image.load("W_Knight.png")
-    wp = pygame.image.load("W_Pawn.png")
-    wr = pygame.image.load("W_Rook.png")
-    # black pieces
-    bk = pygame.image.load("B_King.png")
-    bq = pygame.image.load("B_Queen.png")
-    bb = pygame.image.load("B_Bishop.png")
-    bn = pygame.image.load("B_Knight.png")
-    bp = pygame.image.load("B_Pawn.png")
-    br = pygame.image.load("B_Rook.png")
-    # activated notifier
-    ac = pygame.image.load("activated.png")
-    # class variables
 
-    k, q, b, n, p, r = wk, wq, wb, wn, wp, wr  # this variable refers to the player that will refer in down side
-    kk, qq, bb, nn, pp, rr = bk, bq, bb, bn, bp, br  # this variable refers to the player in the upper side
 
-    whites=[wk, wq, wb, wn, wp, wr]
-    blacks=[bk, bq, bb, bn, bp, br]
-
-    # this constructor loads all the images and stores them in class variables which we
-    # can return using methods later
-    def __init__(self, object,
-                 playerColor):  # This object refers to object of pygame class # playerColor is taken to create the board accordingly
-        # white pieces
-        # self.wk = object.image.load("W_King.png")
-        # self.wq = object.image.load("W_Queen.png")
-        # self.wb = object.image.load("W_Bishop.png")
-        # self.wn = object.image.load("W_Knight.png")
-        # self.wp = object.image.load("W_Pawn.png")
-        # self.wr = object.image.load("W_Rook.png")
-        # # black pieces
-        # self.bk = object.image.load("B_King.png")
-        # self.bq = object.image.load("B_Queen.png")
-        # self.bb = object.image.load("B_Bishop.png")
-        # self.bn = object.image.load("B_Knight.png")
-        # self.bp = object.image.load("B_Pawn.png")
-        # self.br = object.image.load("B_Rook.png")
-        # # activated notifier
-        # self.ac = object.image.load("activated.png")
-
-        # if the player color is black then reversing the variables
-        if playerColor == 'b':
-            self.wk, self.wq, self.wb, self.wn, self.wp, self.wr, self.bk, self.bq, self.bb, self.bn, self.bp, self.br = self.bk, self.bq, self.bb, self.bn, self.bp, self.br, self.wk, self.wq, self.wb, self.wn, self.wp, self.wr
-        self.updateVals()
-
-    def updateVals(self):
-        self.k, self.q, self.b, self.n, self.p, self.r = self.wk, self.wq, self.wb, self.wn, self.wp, self.wr
-        self.kk, self.qq, self.bb, self.nn, self.pp, self.rr = self.bk, self.bq, self.bb, self.bn, self.bp, self.br
-
-    # Return all pygame.surface objects
-    def allImages(self):
-        return self.wk, self.wq, self.wb, self.wn, self.wp, self.wr, self.bk, self.bq, self.bb, self.bn, self.bp, self.br, self.ac
 
 
 class Board:
@@ -83,10 +128,17 @@ class Board:
     board = []
     dimension = 0
 
-    def create_raw_board(p):
-        # initializing the variables for ease in creating the board
-        wk, wq, wb, wn, wp, wr, bk, bq, bb, bn, bp, br = p.wk, p.wq, p.wb, p.wn, p.wp, p.wr, p.bk, p.bq, p.bb, p.bn, p.bp, p.br
+    def create_raw_board(x=5):
+        # initializing using the global variables
+        # global wk, wq, wb, wn, wp, wr, bk, bq, bb, bn, bp, br
 
+        # initializing the variables for ease in creating the board
+        # wk, wq, wb, wn, wp, wr, bk, bq, bb, bn, bp, br = p.wk, p.wq, p.wb, p.wn, p.wp, p.wr, p.bk, p.bq, p.bb, p.bn, p.bp, p.br
+
+
+        # initializing the board variables using the pieces class
+        wp,wr,wn,wb,wq,wk=Pieces.dpawn,Pieces.drook,Pieces.dknight,Pieces.dbishop,Pieces.dqueen,Pieces.dking
+        bp,br,bn,bb,bq,bk=Pieces.upawn,Pieces.urook,Pieces.uknight,Pieces.ubishop,Pieces.uqueen,Pieces.uking
         # you can edit this board variable to change the initial board position
         # if its the black piece dominating then the king and queen side will change
         if player=='w':
@@ -137,14 +189,14 @@ class Board:
             for piece in rows:
                 if piece != 0:
                     axis = (int   ( ( (   cnt2 * size )  +size / 2)   - 32 ), int  ( ( ( cnt1 * size) + size / 2) -32) )
-                    display.blit(piece, axis)
+                    display.blit(piece.drawable, axis)
                 cnt2 += 1
             cnt1 += 1
 
     # this method draws the piece when we hold a piece and move it
     def draw_elevated(x,y,piece,display):
         if piece!=0:
-            display.blit(piece,(x-32,y-32))     # we are blitting at -32 because the size of piece is 64x64 so to keep it in centre we have to do so
+            display.blit(piece.drawable,(x-32,y-32))     # we are blitting at -32 because the size of piece is 64x64 so to keep it in centre we have to do so
 
     # this method will draw a transparent green square where the piece tends to go
     def draw_notifier(x,y,display,pygame,to,activated):
@@ -194,11 +246,20 @@ class Moves:
     class Available:
 
 
+        def checkAvailable(board,x,y):
+
+            if board[y][x] == Pieces.dpawn:
+
+                return Moves.Available.dpawn(board,x,y)
+
+            return []
+
+
 
 
         # this method is for the pawn residing on the down side on board
         # this method is ready for use
-        def dpawn(pygame,board,fx,fy,tx='0',ty='0'):
+        def dpawn(board,fx,fy,tx='0',ty='0'):
 
             available=[]
 
@@ -260,3 +321,5 @@ class helper:
     #         return board[yy][xx] in [Pieces.wp]
     #     else :
     #         return board[yy][xx] in [Pieces.bp]
+
+#pieceObj = Pieces(pygame,player)
