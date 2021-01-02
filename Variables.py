@@ -5,7 +5,7 @@ import pygame
 
 board = []  # this board will be created with 0s and pygame surface objects
 activatedBoard = []  # this will modified often in between the game to notify possible moves
-activatedBlock=0
+activatedBlock = 0
 # window
 display = 0
 dimension = 720  # 512 is the optimum size if try to increase the size the pieces will remain of the same size
@@ -22,8 +22,8 @@ darkBlock = (170, 40, 40)
 lightBlock = (128, 234, 255)
 # this notifier is not a rgb triplet
 # this is a pygame surface object which we will blit later
-notifierColor = pygame.Surface((size,size), pygame.SRCALPHA)   # per-pixel alpha
-notifierColor.fill((0,255,0,170))
+notifierColor = pygame.Surface((size, size), pygame.SRCALPHA)  # per-pixel alpha
+notifierColor.fill((0, 255, 0, 170))
 
 # Chance
 chance = 'w'
@@ -31,10 +31,10 @@ next = 'b'
 player = 'w'
 
 # elevated piece moving
-piece=0
+piece = 0
 
-showNotifier=False
+showNotifier = False
 
 # clicked timing
-down=0
-up=0
+down = 0
+up = 0

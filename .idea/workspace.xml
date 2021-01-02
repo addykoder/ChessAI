@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5f2bb15-a023-4660-9638-e4efec711dd9" name="Default Changelist" comment="added the notifier functionality">
+    <list default="true" id="b5f2bb15-a023-4660-9638-e4efec711dd9" name="Default Changelist" comment="added the pawn's available moves.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/Engine.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/Variables.py" afterDir="false" />
@@ -146,8 +146,25 @@
       <option name="project" value="LOCAL" />
       <updated>1609587155019</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added the pawn's available moves.">
+      <created>1609593212041</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1609593212041</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -162,7 +179,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added the notifier functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="added the notifier functionality" />
+    <MESSAGE value="added the pawn's available moves." />
+    <option name="LAST_COMMIT_MESSAGE" value="added the pawn's available moves." />
   </component>
   <component name="WindowStateProjectService">
     <state x="838" y="438" key="Github.ShareDialog" timestamp="1609514334931">
@@ -173,22 +191,22 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="767" y="243" key="Github.UntrackedFilesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1609514361337" />
-    <state width="1899" height="294" key="GridCell.Tab.0.bottom" timestamp="1609592832881">
+    <state width="1899" height="294" key="GridCell.Tab.0.bottom" timestamp="1609593930905">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="294" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1609592832881" />
-    <state width="1899" height="294" key="GridCell.Tab.0.center" timestamp="1609592832881">
+    <state width="1899" height="294" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1609593930905" />
+    <state width="1899" height="294" key="GridCell.Tab.0.center" timestamp="1609593930905">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="294" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1609592832881" />
-    <state width="1899" height="294" key="GridCell.Tab.0.left" timestamp="1609592832881">
+    <state width="1899" height="294" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1609593930905" />
+    <state width="1899" height="294" key="GridCell.Tab.0.left" timestamp="1609593930905">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="294" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1609592832881" />
-    <state width="1899" height="294" key="GridCell.Tab.0.right" timestamp="1609592832881">
+    <state width="1899" height="294" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1609593930905" />
+    <state width="1899" height="294" key="GridCell.Tab.0.right" timestamp="1609593930905">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="294" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1609592832881" />
+    <state width="1899" height="294" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1609593930905" />
     <state width="1899" height="494" key="GridCell.Tab.1.bottom" timestamp="1609588297287">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
