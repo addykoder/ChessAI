@@ -20,104 +20,104 @@ class Pieces:
         name = 'dpawn'
         point = 1
         if player == 'w':
-            drawable = pygame.image.load("W_Pawn.png")
+            drawable = pygame.image.load("drawables/W_Pawn.png")
         else:
-            drawable = pygame.image.load("B_Pawn.png")
+            drawable = pygame.image.load("drawables/B_Pawn.png")
 
     class upawn:
         name = 'upawn'
         point = -1
         if player == 'b':
-            drawable = pygame.image.load("W_Pawn.png")
+            drawable = pygame.image.load("drawables/W_Pawn1.png")
         else:
-            drawable = pygame.image.load("B_Pawn.png")
+            drawable = pygame.image.load("drawables/B_Pawn.png")
 
 
     class dking:
         name = 'dking'
         point = 200
         if player == 'w':
-            drawable = pygame.image.load("W_King.png")
+            drawable = pygame.image.load("drawables/W_King.png")
         else:
-            drawable = pygame.image.load("B_King.png")
+            drawable = pygame.image.load("drawables/B_King.png")
 
     class uking:
         name = 'uking'
         point = -200
         if player == 'b':
-            drawable = pygame.image.load("W_King.png")
+            drawable = pygame.image.load("drawables/W_King.png")
         else:
-            drawable = pygame.image.load("B_King.png")
+            drawable = pygame.image.load("drawables/B_King.png")
 
 
     class dqueen:
         name = 'dqueen'
         point = 8
         if player == 'w':
-            drawable = pygame.image.load("W_Queen.png")
+            drawable = pygame.image.load("drawables/W_Queen.png")
         else:
-            drawable = pygame.image.load("B_Queen.png")
+            drawable = pygame.image.load("drawables/B_Queen.png")
 
     class uqueen:
         name = 'uqueen'
         point = -8
         if player == 'b':
-            drawable = pygame.image.load("W_Queen.png")
+            drawable = pygame.image.load("drawables/W_Queen.png")
         else:
-            drawable = pygame.image.load("B_Queen.png")
+            drawable = pygame.image.load("drawables/B_Queen.png")
 
 
     class drook:
         name = 'drook'
         point = 5
         if player == 'w':
-            drawable = pygame.image.load("W_Rook.png")
+            drawable = pygame.image.load("drawables/W_Rook.png")
         else:
-            drawable = pygame.image.load("B_Rook.png")
+            drawable = pygame.image.load("drawables/B_Rook.png")
 
     class urook:
         name = 'urook'
         point = -5
         if player == 'b':
-            drawable = pygame.image.load("W_Rook.png")
+            drawable = pygame.image.load("drawables/W_Rook.png")
         else:
-            drawable = pygame.image.load("B_Rook.png")
+            drawable = pygame.image.load("drawables/B_Rook.png")
 
 
     class dbishop:
         name = 'dbishop'
         point = 3
         if player == 'w':
-            drawable = pygame.image.load("W_Bishop.png")
+            drawable = pygame.image.load("drawables/W_Bishop.png")
         else:
-            drawable = pygame.image.load("B_Bishop.png")
+            drawable = pygame.image.load("drawables/B_Bishop.png")
 
     class ubishop:
         name = 'ubishop'
         point = -3
         if player == 'b':
-            drawable = pygame.image.load("W_Bishop.png")
+            drawable = pygame.image.load("drawables/W_Bishop.png")
         else:
-            drawable = pygame.image.load("B_Bishop.png")
+            drawable = pygame.image.load("drawables/B_Bishop.png")
 
 
     class dknight:
         name = 'dknight'
         point = 3
         if player == 'w':
-            drawable = pygame.image.load("W_Knight.png")
+            drawable = pygame.image.load("drawables/W_Knight.png")
         else:
-            drawable = pygame.image.load("B_Knight.png")
+            drawable = pygame.image.load("drawables/B_Knight.png")
 
     class uknight:
         name = 'uknight'
         point = -3
         if player == 'b':
-            drawable = pygame.image.load("W_Knight.png")
+            drawable = pygame.image.load("drawables/W_Knight.png")
         else:
-            drawable = pygame.image.load("B_Knight.png")
+            drawable = pygame.image.load("drawables/B_Knight.png")
 
-    ac = pygame.image.load("activated.png")
+    ac = pygame.image.load("drawables/activated.png")
 
     blacks = [upawn, uking, uqueen, urook, ubishop, uknight]
     whites = [dpawn, dking, dqueen, drook, dbishop, dknight]
@@ -208,7 +208,7 @@ class Board:
 
             # this draw a circle in between
             if helper.fromIndex(yy, xx) in activated:
-                display.blit(pygame.image.load("notifier.png"),
+                display.blit(pygame.image.load("drawables/notifier.png"),
                              (((xx * size) + (size / 2)) - 32, (yy * size) + (size / 2) - 32))
 
     # This method is used so the live chance pieces will blit over the notifier
