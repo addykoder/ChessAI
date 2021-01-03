@@ -248,13 +248,12 @@ class Moves:
 
             # if the piece would not be in the left corner
             if fx != 0:
-                if board[fy - 1][fx - 1] in helper.listPieces(chance,
-                                                              False):  # this helper.method returns the list of pieces of opponent team
+                # this helper.method returns the list of pieces of opponent team
+                if board[fy - 1][fx - 1] in helper.listPieces(chance, False):
                     available.append(helper.fromIndex(fy - 1, fx - 1))
             # if it is not in the right corner
             if fx != 7:
-                if board[fy - 1][fx + 1] in helper.listPieces(chance,
-                                                              False):  # this helper.method returns the list of opponent team pieces
+                if board[fy - 1][fx + 1] in helper.listPieces(chance, False):
                     available.append(helper.fromIndex(fy - 1, fx + 1))
             # if it has one space in front
             if board[fy - 1][fx] == 0:
@@ -291,9 +290,32 @@ class Moves:
 
 
 class Ai:
+    # this method is ready for usage with any kinds of pieces and can give the lists of
+    # board of positions of the possible move by the piece
+
+    # this methods takes the arguments chance and returns the list according to that player only
+
     @staticmethod
     def getAllPositions(board, chance):
-        pass
+        board2 = helper.copyBoard(board)
+        if chance == 'w':
+            avails = Pieces.whites
+        else:
+            avails = Pieces.blacks
+
+        positions = []
+        for i in range(8):
+            for j in range(8):
+                if board[i][j] in avails:
+                    available = Moves.Available.checkAvailable(board, j, i, 'w')
+                    for x in available:
+                        if x != 0:
+                            tx, ty = helper.toIndex(x)
+                            board2[tx][ty] = board2[i][j]
+                            board2[i][j] = 0
+                            positions.append(board2)
+                            board2 = helper.copyBoard(board)
+        return positions
 
 
 class helper:
@@ -334,6 +356,16 @@ class helper:
                 return Pieces.blacks
             else:
                 return Pieces.whites
+
+    @staticmethod
+    def copyBoard(board):
+        board2 = []
+        for i in board:
+            ast = []
+            for j in i:
+                ast.append(j)
+            board2.append(ast)
+        return board2
 
     # def toShowNotifier(board,x,y,chance):
     #     xx,yy=helper.fromAxis(x,y)
