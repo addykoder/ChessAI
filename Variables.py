@@ -28,10 +28,12 @@ notifierColor.fill((0, 255, 0, 170))
 # Chance
 chance = 'w'
 next = 'b'
-player = 'w'
+player = 'b'
 
 # elevated piece moving
 piece = 0
+Fromx = 0
+Fromy = 0
 
 showNotifier = False
 

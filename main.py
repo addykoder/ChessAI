@@ -1,3 +1,7 @@
+# NOTES
+# if you want to get the points on the board positive for player on the bottom
+# and negative for that of on the top. you can use Board.returnPoints(board);
+
 class main:
     # this method is taking board because it is been modified and will be null if not passed
     def onEveryFrame(board):
@@ -6,14 +10,19 @@ class main:
         # drawing the board and pieces
         Board.draw_board(pygame, display, dimension)
 
+        # drawing the pieces over the board
         Board.draw_pieces(display, board)
 
+        # drawing the moves available for the selected piece
         Board.draw_activated(display, activatedBoard)
 
+        # drawing the big green circle if the piece is elevated over a valid block
         Board.draw_notifier(x, y, display, pygame, showNotifier, activatedBoard)
 
+        # this method draws the pieces which is elevated on the position of the mouse pointer
         Board.draw_elevated(x, y, piece, display)
 
+        #print(chance)
         pygame.display.update()
 
     def initializePygame(x=0):
@@ -30,40 +39,66 @@ class main:
         if event.type == pygame.QUIT:
             pygame.quit()
             quit(print("bye"))
+
     def onMouseDown(x, y, board):
-        global piece, activatedBlock, showNotifier, activatedBoard
+        global piece, activatedBlock, showNotifier, activatedBoard, fromx, fromy
 
-        # this will make the touched block the activated block we will make changes to it afterwords
-        xx, yy = helper.fromAxis(y, x)  # we have passes flipped x and y because in index it is so as done
+        if chance=='w':
+            selfs = Pieces.whites
+        else :
+            selfs = Pieces.blacks
 
-        activatedBlock = helper.fromIndex(xx, yy)
+        # getting the index of the board block which is clicked
+        xx, yy = helper.fromAxis(x, y)  # we have passes flipped x and y because in index it is so as done
 
-        activatedBoard = Moves.Available.checkAvailable(board, x // size, y // size)
+        # this assigns the clicked block as the activated block
+        activatedBlock = helper.fromIndex(yy, xx)
 
-        fy, fx = helper.fromAxis(x, y)
-        piece = board[fx][fy]
-        board[fx][fy] = 0
 
-        # if helper.toShowNotifier(board,x,y,chance):
+
+        # this will make changes to the activatedBoard which shows the green dots based on available moves
+        if board[y//size][x//size] in selfs:    # if the selected piece is for the activated chance
+            activatedBoard = Moves.Available.checkAvailable(board, x // size, y // size, chance)
+
+        # getting the piece elevated and hold in hand
+        fromx, fromy = xx, yy    # this variable holds the index from where we have taken the piece up
+        piece = board[fromy][fromx]     # this variable holds the piece which is elevated to blit it
+        board[fromy][fromx] = 0     # this variable makes that block 0 so that no instance of that piece is formed
+
+
         showNotifier = True
 
     def onMouseUp(x, y, board):
-        global piece, showNotifier, activatedBoard
+        global piece, showNotifier, activatedBoard, fromx, fromy, chance, next
 
-        if activatedBlock != 0:
-            fx, fy = helper.toIndex(activatedBlock)
-            tx, ty = helper.fromAxis(x, y)
-            if piece != 0:
-                board[ty][tx] = piece
-            piece = 0
+        tx,ty=helper.fromAxis(x,y)
+
+        if helper.fromIndex(ty,tx) in activatedBoard:
+            board[ty][tx] = piece
+            piece=0
+            # swapping the variables to chance chance
+            chance, next = next, chance
+        else :
+            board[fromy][fromx] = piece
+            piece=0
+
+
+
         showNotifier = False
         activatedBoard = []
 
+        # prints the point in board
+        print(Board.returnPoints(board))
     def onKeyDown(key):
 
         # resetting the board if the r key is pressed
         if key == pygame.K_r:
+            global chance
+
+            chance = 'w'
             return Board.create_raw_board()
+
+
 
     def startGame(x=0):
         # Initializing and constructing all instantiated modules and variables

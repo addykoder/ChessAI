@@ -28,7 +28,7 @@ class Pieces:
         name = 'upawn'
         point = -1
         if player == 'b':
-            drawable = pygame.image.load("drawables/W_Pawn1.png")
+            drawable = pygame.image.load("drawables/W_Pawn.png")
         else:
             drawable = pygame.image.load("drawables/B_Pawn.png")
 
@@ -234,32 +234,41 @@ class Board:
             xx, yy = helper.toAxis(x, y)
             display.blit(Pieces.ac, ((yy + (size / 2) - 32), ((xx + (size / 2) - 32))))
 
+    def returnPoints(board):
+        points=0
+        for rows in board:
+            for blocks in rows:
+                if blocks!=0:
+                    points+=blocks.point
+        return points
+
+
 
 class Moves:
     class Available:
 
-        def checkAvailable(board, x, y):
+        def checkAvailable(board, x, y, chance):
 
             if board[y][x] == Pieces.dpawn:
-                return Moves.Available.dpawn(board, x, y)
+                return Moves.Available.dpawn(board, x, y, chance)
+            elif board[y][x] == Pieces.upawn:
+                return Moves.Available.upawn(board, x, y, chance)
 
             return []
 
         # this method is for the pawn residing on the down side on board
         # this method is ready for use
-        def dpawn(board, fx, fy, tx='0', ty='0'):
+        def dpawn(board, fx, fy, chance):
 
             available = []
 
             # if the piece would not be in the left corner
             if fx != 0:
-                if board[fy - 1][fx - 1] in helper.listPieces(chance,
-                                                              player == 'b'):  # this helper.method returns the list of pieces of opponent team
+                if board[fy - 1][fx - 1] in helper.listPieces(chance,False):  # this helper.method returns the list of pieces of opponent team
                     available.append(helper.fromIndex(fy - 1, fx - 1))
             # if it is not in the right corner
             if fx != 7:
-                if board[fy - 1][fx + 1] in helper.listPieces(chance,
-                                                              player == 'b'):  # this helper.method returns the list of opponent team pieces
+                if board[fy - 1][fx + 1] in helper.listPieces(chance,False):  # this helper.method returns the list of opponent team pieces
                     available.append(helper.fromIndex(fy - 1, fx + 1))
             # if it has one space in front
             if board[fy - 1][fx] == 0:
@@ -268,6 +277,28 @@ class Moves:
                 if fy == 6:
                     if board[fy - 2][fx] == 0:
                         available.append(helper.fromIndex(fy - 2, fx))
+
+            return available
+
+        def upawn(board, fx, fy, chance):
+
+            available = []
+
+            # if piece would not be in the left corner
+            if fx != 0:
+                if board[fy+1][fx-1] in helper.listPieces(chance,False):
+                    available.append(helper.fromIndex(fy+1,fx-1))
+            # if it is not in the right corner
+            if fx!=7:
+                if board[fy+1][fx+1] in helper.listPieces(chance,False):
+                    available.append(helper.fromIndex(fy+1,fx+1))
+            # if it has one space in front
+            if board[fy+1][fx] == 0:
+                available.append(helper.fromIndex(fy+1,fx))
+                # if it has 2 spaces in front
+                if fy==1:
+                    if board[fy+2][fx]==0:
+                        available.append(helper.fromIndex(fy+2,fx))
 
             return available
 
@@ -297,11 +328,18 @@ class helper:
         return x * size, y * size
 
     def listPieces(chance, who):
+
         if chance == 'w':
             if who:
                 return Pieces.whites
             else:
                 return Pieces.blacks
+        elif chance == 'b':
+
+            if who:
+                return Pieces.blacks
+            else:
+                return Pieces.whites
 
     # def toShowNotifier(board,x,y,chance):
     #     xx,yy=helper.fromAxis(x,y)
