@@ -1,5 +1,3 @@
-
-
 from Variables import *
 
 
@@ -32,7 +30,6 @@ class Pieces:
         else:
             drawable = pygame.image.load("drawables/B_Pawn.png")
 
-
     class dking:
         name = 'dking'
         point = 200
@@ -48,7 +45,6 @@ class Pieces:
             drawable = pygame.image.load("drawables/W_King.png")
         else:
             drawable = pygame.image.load("drawables/B_King.png")
-
 
     class dqueen:
         name = 'dqueen'
@@ -66,7 +62,6 @@ class Pieces:
         else:
             drawable = pygame.image.load("drawables/B_Queen.png")
 
-
     class drook:
         name = 'drook'
         point = 5
@@ -83,7 +78,6 @@ class Pieces:
         else:
             drawable = pygame.image.load("drawables/B_Rook.png")
 
-
     class dbishop:
         name = 'dbishop'
         point = 3
@@ -99,7 +93,6 @@ class Pieces:
             drawable = pygame.image.load("drawables/W_Bishop.png")
         else:
             drawable = pygame.image.load("drawables/B_Bishop.png")
-
 
     class dknight:
         name = 'dknight'
@@ -130,7 +123,8 @@ class Board:
     board = []
     dimension = 0
 
-    def create_raw_board(x=5):
+    @staticmethod
+    def create_raw_board():
 
         # initializing the board variables using the pieces class
         wp, wr, wn, wb, wq, wk = Pieces.dpawn, Pieces.drook, Pieces.dknight, Pieces.dbishop, Pieces.dqueen, Pieces.dking
@@ -164,7 +158,8 @@ class Board:
 
         return Board.board
 
-    def draw_board(pyg, display, dim):
+    @staticmethod
+    def draw_board(pyg, display):
         block = size
         cnt = 0
         for i in range(8):
@@ -177,6 +172,7 @@ class Board:
                 cnt += 1
             cnt -= 1
 
+    @staticmethod
     def draw_pieces(display, board):
 
         cnt1 = 0
@@ -190,12 +186,14 @@ class Board:
             cnt1 += 1
 
     # this method draws the piece when we hold a piece and move it
+    @staticmethod
     def draw_elevated(x, y, piece, display):
         if piece != 0:
             display.blit(piece.drawable, (x - 32,
                                           y - 32))  # we are blitting at -32 because the size of piece is 64x64 so to keep it in centre we have to do so
 
     # this method will draw a transparent green square where the piece tends to go
+    @staticmethod
     def draw_notifier(x, y, display, pygame, to, activated):
 
         if to:
@@ -211,42 +209,27 @@ class Board:
                 display.blit(pygame.image.load("drawables/notifier.png"),
                              (((xx * size) + (size / 2)) - 32, (yy * size) + (size / 2) - 32))
 
-    # This method is used so the live chance pieces will blit over the notifier
-    def draw_pieces_overNotifier(display, board, chance):
-        if chance == 'w':
-            avail = [Pieces.wp, Pieces.wb, Pieces.wn, Pieces.wr, Pieces.wq, Pieces.wk]
-        else:
-            avail = [Pieces.wp, Pieces.wb, Pieces.wk, Pieces.wn, Pieces.wq, Pieces.wr]
-
-        board2 = []
-
-        for i in range(7):
-            lst = []
-            for j in range(7):
-                if board[i][j] in avail:
-                    lst.append(board[i][j])
-                board2.append(lst)
-        Board.draw_pieces(display, board2)
-
+    @staticmethod
     def draw_activated(display, ACboard):
         for i in ACboard:
             x, y = helper.toIndex(i)
             xx, yy = helper.toAxis(x, y)
             display.blit(Pieces.ac, ((yy + (size / 2) - 32), ((xx + (size / 2) - 32))))
 
+    @staticmethod
     def returnPoints(board):
-        points=0
+        points = 0
         for rows in board:
             for blocks in rows:
-                if blocks!=0:
-                    points+=blocks.point
+                if blocks != 0:
+                    points += blocks.point
         return points
-
 
 
 class Moves:
     class Available:
 
+        @staticmethod
         def checkAvailable(board, x, y, chance):
 
             if board[y][x] == Pieces.dpawn:
@@ -258,17 +241,20 @@ class Moves:
 
         # this method is for the pawn residing on the down side on board
         # this method is ready for use
+        @staticmethod
         def dpawn(board, fx, fy, chance):
 
             available = []
 
             # if the piece would not be in the left corner
             if fx != 0:
-                if board[fy - 1][fx - 1] in helper.listPieces(chance,False):  # this helper.method returns the list of pieces of opponent team
+                if board[fy - 1][fx - 1] in helper.listPieces(chance,
+                                                              False):  # this helper.method returns the list of pieces of opponent team
                     available.append(helper.fromIndex(fy - 1, fx - 1))
             # if it is not in the right corner
             if fx != 7:
-                if board[fy - 1][fx + 1] in helper.listPieces(chance,False):  # this helper.method returns the list of opponent team pieces
+                if board[fy - 1][fx + 1] in helper.listPieces(chance,
+                                                              False):  # this helper.method returns the list of opponent team pieces
                     available.append(helper.fromIndex(fy - 1, fx + 1))
             # if it has one space in front
             if board[fy - 1][fx] == 0:
@@ -280,43 +266,49 @@ class Moves:
 
             return available
 
+        @staticmethod
         def upawn(board, fx, fy, chance):
 
             available = []
 
             # if piece would not be in the left corner
             if fx != 0:
-                if board[fy+1][fx-1] in helper.listPieces(chance,False):
-                    available.append(helper.fromIndex(fy+1,fx-1))
+                if board[fy + 1][fx - 1] in helper.listPieces(chance, False):
+                    available.append(helper.fromIndex(fy + 1, fx - 1))
             # if it is not in the right corner
-            if fx!=7:
-                if board[fy+1][fx+1] in helper.listPieces(chance,False):
-                    available.append(helper.fromIndex(fy+1,fx+1))
+            if fx != 7:
+                if board[fy + 1][fx + 1] in helper.listPieces(chance, False):
+                    available.append(helper.fromIndex(fy + 1, fx + 1))
             # if it has one space in front
-            if board[fy+1][fx] == 0:
-                available.append(helper.fromIndex(fy+1,fx))
+            if board[fy + 1][fx] == 0:
+                available.append(helper.fromIndex(fy + 1, fx))
                 # if it has 2 spaces in front
-                if fy==1:
-                    if board[fy+2][fx]==0:
-                        available.append(helper.fromIndex(fy+2,fx))
+                if fy == 1:
+                    if board[fy + 2][fx] == 0:
+                        available.append(helper.fromIndex(fy + 2, fx))
 
             return available
 
 
 class Ai:
-    pass
+    @staticmethod
+    def getAllPositions(board, chance):
+        pass
 
 
 class helper:
     # returns board indexes starting from 0
+    @staticmethod
     def fromAxis(x, y):
         return (x // size), (y // size)
 
     # returns serial value from 1 to 64
+    @staticmethod
     def fromIndex(x, y):
         return (x) * 8 + y + 1  # added one at the end because we have to start from 1
 
     # returns x and y index value
+    @staticmethod
     def toIndex(serial):
         if serial % 8 != 0:
             return serial // 8, (serial % 8) - 1
@@ -324,9 +316,11 @@ class helper:
             return (serial // 8) - 1, 7
 
     # returns the true x and y values
+    @staticmethod
     def toAxis(x, y):
         return x * size, y * size
 
+    @staticmethod
     def listPieces(chance, who):
 
         if chance == 'w':

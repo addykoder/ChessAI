@@ -27,8 +27,8 @@ notifierColor.fill((0, 255, 0, 170))
 
 # Chance
 chance = 'w'
-next = 'b'
-player = 'b'
+nextChance = 'b'
+player = 'w'
 
 # elevated piece moving
 piece = 0
