@@ -57,6 +57,8 @@ class main:
         else:
             selfs = Pieces.blacks
 
+
+
         # getting the index of the board block which is clicked
         xx, yy = helper.fromAxis(x, y)  # we have passes flipped x and y because in index it is so as done
 
@@ -86,6 +88,9 @@ class main:
             # swapping the variables to chance chance
             chance, nextChance = nextChance, chance
         else:
+
+            # this condition prevents it from executing when we have pressed the r key to reset the board
+
             board[fromy][fromx] = piece
             piece = 0
 
@@ -96,11 +101,12 @@ class main:
         # print(Board.returnPoints(board))
 
     @staticmethod
-    def onKeyDown(key):
+    def onRkeyDown():
 
-        # resetting the board if the r key is pressed
-        if key == pygame.K_r:
-            global chance
+            global chance, activatedBoard, piece, fromX, fromY, board
+
+            activatedBoard, piece = [], 0      # here the value of piece is set to 'ig' because 0 was not working
+            fromX,fromY=0,0
 
             chance = 'w'
             return Board.create_raw_board()
@@ -126,7 +132,8 @@ class main:
                     main.onMouseUp(event.pos[0], event.pos[1], board)
                 if event.type == pygame.KEYDOWN:
                     # This method contains all code to perform key shortcuts during play
-                    board = main.onKeyDown(event.key)
+                    if event.key == pygame.K_r:
+                        board=main.onRkeyDown()
 
             main.onEveryFrame(board)
 

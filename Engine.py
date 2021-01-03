@@ -188,7 +188,7 @@ class Board:
     # this method draws the piece when we hold a piece and move it
     @staticmethod
     def draw_elevated(x, y, piece, display):
-        if piece != 0:
+        if piece != 0 :
             display.blit(piece.drawable, (x - 32,
                                           y - 32))  # we are blitting at -32 because the size of piece is 64x64 so to keep it in centre we have to do so
 
