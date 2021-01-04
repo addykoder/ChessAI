@@ -1,5 +1,12 @@
 import pygame
 
+
+# playing settings
+# this variable tells that whom against do you want to play
+# random, AI ( in development ) or multiplayer
+Play_Against = 'multiplayer'
+
+
 #   This class has all the variables used in the full project you can edit these
 #   variables as per your need to see changes in your game
 
@@ -40,3 +47,4 @@ showNotifier = False
 # clicked timing
 down = 0
 up = 0
+

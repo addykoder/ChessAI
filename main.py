@@ -5,6 +5,7 @@
 # importing necessary modules
 from Engine import *
 from Variables import *
+from random import randint
 
 
 class main:
@@ -75,16 +76,23 @@ class main:
         showNotifier = True
 
     @staticmethod
-    def onMouseUp(x, y, board):
-        global piece, showNotifier, activatedBoard, fromx, fromy, chance, nextChance
+    def onMouseUp(x, y):
+        global piece, showNotifier, activatedBoard, fromx, fromy, chance, nextChance, board
 
         tx, ty = helper.fromAxis(x, y)
 
         if helper.fromIndex(ty, tx) in activatedBoard:
             board[ty][tx] = piece
             piece = 0
+
+            if Play_Against == 'random':
+                board=Ai.randomChance(board)
+
+
             # swapping the variables to chance chance
-            chance, nextChance = nextChance, chance
+            if Play_Against == "multiplayer":
+                chance, nextChance = nextChance, chance
+
         else:
 
             # this condition prevents it from executing when we have pressed the r key to reset the board
@@ -101,20 +109,29 @@ class main:
     @staticmethod
     def onRkeyDown():
 
-        global chance, activatedBoard, piece, fromX, fromY, nextChance
+        global chance, activatedBoard, piece, fromX, fromY, nextChance, board
 
         activatedBoard, piece = [], 0  # here the value of piece is set to 'ig' because 0 was not working
         fromX, fromY = 0, 0
 
         chance, nextChance = 'w', 'b'
-        return Board.create_raw_board()
+        board =  Board.create_raw_board()
 
     @staticmethod
     def startGame():
+        global  board, chance
         # Initializing and constructing all instantiated modules and variables
         main.initializePygame()
         # piece = Pieces(pygame, player)  # the player variable passes the main human player's color of pieces
         board = Board.create_raw_board()  # getting the raw initial board in the board variable
+
+        if player == 'b':
+            if Play_Against == 'random':
+                board=Ai.randomChance(board)
+                chance = 'b'
+            elif Play_Against == 'Ai':
+                pass
+                chance = 'b'
 
         while True:
 
@@ -124,14 +141,18 @@ class main:
 
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     # this method contains all the methods for activating and moves
-                    main.onMouseDown(event.pos[0], event.pos[1], board)
+                    # if the left mouse button is clicked and not the right button
+                    if event.button == 1:
+                        main.onMouseDown(event.pos[0], event.pos[1], board)
                 if event.type == pygame.MOUSEBUTTONUP:
                     # This method contains all the events that will be handled in this situation
-                    main.onMouseUp(event.pos[0], event.pos[1], board)
+                    # if the left mouse button is clicked
+                    if event.button == 1:
+                        main.onMouseUp(event.pos[0], event.pos[1])
                 if event.type == pygame.KEYDOWN:
                     # This method contains all code to perform key shortcuts during play
                     if event.key == pygame.K_r:
-                        board = main.onRkeyDown()
+                        main.onRkeyDown()
 
             main.onEveryFrame(board)
 

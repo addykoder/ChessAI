@@ -1,5 +1,5 @@
 from Variables import *
-
+from random import randint
 
 #   NOTES
 
@@ -149,10 +149,7 @@ class Pieces:
 
         @staticmethod
         def possibles(board, x, y, chance):
-            try:
-                return Moves.Available.knight(board, x, y, chance)
-            except:
-                return []
+            return Moves.Available.knight(board, x, y, chance)
 
     class uknight:
         name = 'uknight'
@@ -164,14 +161,10 @@ class Pieces:
 
         @staticmethod
         def possibles(board, x, y, chance):
-            try:
-                return Moves.Available.knight(board, x, y, chance)
-            except:
-                pass
-
-            return []
+            return Moves.Available.knight(board, x, y, chance)
 
     ac = pygame.image.load("drawables/activated.png")
+    notifier = pygame.image.load("drawables/notifier.png")
 
     blacks = [upawn, uking, uqueen, urook, ubishop, uknight]
     whites = [dpawn, dking, dqueen, drook, dbishop, dknight]
@@ -250,8 +243,8 @@ class Board:
     @staticmethod
     def draw_elevated(x, y, piece, display):
         if piece != 0:
-            display.blit(piece.drawable, (x - 32,
-                                          y - 32))  # we are blitting at -32 because the size of piece is 64x64 so to keep it in centre we have to do so
+            # we are blitting at -32 because the size of piece is 64x64 so to keep it in centre we have to do so
+            display.blit(piece.drawable, (x - 32, y - 32))
 
     # this method will draw a transparent green square where the piece tends to go
     @staticmethod
@@ -267,8 +260,7 @@ class Board:
 
             # this draw a circle in between
             if helper.fromIndex(yy, xx) in activated:
-                display.blit(pygame.image.load("drawables/notifier.png"),
-                             (((xx * size) + (size / 2)) - 32, (yy * size) + (size / 2) - 32))
+                display.blit(Pieces.notifier, (((xx * size) + (size / 2)) - 32, (yy * size) + (size / 2) - 32))
 
     @staticmethod
     def draw_activated(display, ACboard):
@@ -475,6 +467,24 @@ class Moves:
                 available.append(i)
             return available
 
+        @staticmethod
+        def knight(board, fx, fy, chance):
+
+            available = []
+            toCheck = [[2, 1], [-2, 1], [2, -1], [-2, -1], [1, 2], [-1, 2], [1, -2], [-1, -2]]
+
+            for i in toCheck:
+                ffx = fx + i[0]
+                ffy = fy + i[1]
+
+                if ffx not in range(8) or ffy not in range(8):
+                    continue
+
+                if board[ffy][ffx] == 0 or board[ffy][ffx] in helper.listPieces(chance, False):
+                    available.append(helper.fromIndex(ffy, ffx))
+
+            return available
+
 
 class Ai:
     # this method is ready for usage with any kinds of pieces and can give the lists of
@@ -494,7 +504,8 @@ class Ai:
         for i in range(8):
             for j in range(8):
                 if board[i][j] in avails:
-                    available = Moves.Available.checkAvailable(board, j, i, 'w')
+                    available = Moves.Available.checkAvailable(board, j, i, chance)
+
                     for x in available:
                         if x != 0:
                             tx, ty = helper.toIndex(x)
@@ -502,7 +513,38 @@ class Ai:
                             board2[i][j] = 0
                             positions.append(board2)
                             board2 = helper.copyBoard(board)
+
         return positions
+
+    @staticmethod
+    def randomChance(board):
+
+        makeChanceOf = 'b'
+        if player == 'b':
+            makeChanceOf = 'w'
+
+        limit = len(Ai.getAllPositions(board, makeChanceOf)) + 1
+
+        rnd = randint(1, limit)
+
+        giveboard=0
+        ji = 1
+
+        for i in Ai.getAllPositions(board, makeChanceOf):
+
+            if ji == rnd:
+                if i != board:
+                    giveboard = i
+                else:
+                    print("now")
+                    return Ai.randomChance(board)
+            ji += 1
+
+        if giveboard==0:
+            return Ai.randomChance(board)
+        return giveboard
+
+
 
 
 class helper:
@@ -554,11 +596,4 @@ class helper:
             board2.append(ast)
         return board2
 
-    # def toShowNotifier(board,x,y,chance):
-    #     xx,yy=helper.fromAxis(x,y)
-    #     if chance=='w':
-    #         return board[yy][xx] in [Pieces.wp]
-    #     else :
-    #         return board[yy][xx] in [Pieces.bp]
 
-# pieceObj = Pieces(pygame,player)
