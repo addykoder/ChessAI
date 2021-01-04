@@ -19,23 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5f2bb15-a023-4660-9638-e4efec711dd9" name="Default Changelist" comment="reformatted the code">
+    <list default="true" id="b5f2bb15-a023-4660-9638-e4efec711dd9" name="Default Changelist" comment="fixed the resetting board glich">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/B_Bishop.png" beforeDir="false" afterPath="$PROJECT_DIR$/drawables/B_Bishop.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/B_King.png" beforeDir="false" afterPath="$PROJECT_DIR$/drawables/B_King.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/B_Knight.png" beforeDir="false" afterPath="$PROJECT_DIR$/drawables/B_Knight.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/B_Pawn.png" beforeDir="false" afterPath="$PROJECT_DIR$/drawables/B_Pawn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/B_Queen.png" beforeDir="false" afterPath="$PROJECT_DIR$/drawables/B_Queen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/B_Rook.png" beforeDir="false" afterPath="$PROJECT_DIR$/drawables/B_Rook.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/Engine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/W_Bishop.png" beforeDir="false" afterPath="$PROJECT_DIR$/drawables/W_Bishop.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/W_King.png" beforeDir="false" afterPath="$PROJECT_DIR$/drawables/W_King.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/W_Knight.png" beforeDir="false" afterPath="$PROJECT_DIR$/drawables/W_Knight.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/W_Pawn.png" beforeDir="false" afterPath="$PROJECT_DIR$/drawables/W_Pawn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/W_Queen.png" beforeDir="false" afterPath="$PROJECT_DIR$/drawables/W_Queen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/W_Rook.png" beforeDir="false" afterPath="$PROJECT_DIR$/drawables/W_Rook.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/activated.png" beforeDir="false" afterPath="$PROJECT_DIR$/drawables/activated.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notifier.png" beforeDir="false" afterPath="$PROJECT_DIR$/drawables/notifier.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,10 +50,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/drawables" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Aditya\PycharmProjects\ChessAI" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Aditya\PycharmProjects\ChessAI\drawables" />
       <recent name="C:\Users\Aditya\PycharmProjects\ChessAI" />
     </key>
   </component>
@@ -172,7 +160,42 @@
       <option name="project" value="LOCAL" />
       <updated>1609594032399</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="reformatted the code and made a separate directory for drawables">
+      <created>1609674216817</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1609674216817</updated>
+    </task>
+    <task id="LOCAL-00005" summary="make the chance wise system working and made the upawn mehtod working">
+      <created>1609678925810</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1609678925810</updated>
+    </task>
+    <task id="LOCAL-00006" summary="reformatted the file and fixed all potential bugs">
+      <created>1609681256997</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1609681256997</updated>
+    </task>
+    <task id="LOCAL-00007" summary="make the return positions of the board based on chance working for any piece and is ready for developed with minimax algorithm">
+      <created>1609683401652</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1609683401652</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fixed the resetting board glich">
+      <created>1609685195535</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1609685195535</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -201,9 +224,18 @@
     <MESSAGE value="added the notifier functionality" />
     <MESSAGE value="added the pawn's available moves." />
     <MESSAGE value="reformatted the code" />
-    <option name="LAST_COMMIT_MESSAGE" value="reformatted the code" />
+    <MESSAGE value="reformatted the code and made a separate directory for drawables" />
+    <MESSAGE value="make the chance wise system working and made the upawn mehtod working" />
+    <MESSAGE value="reformatted the file and fixed all potential bugs" />
+    <MESSAGE value="make the return positions of the board based on chance working for any piece and is ready for developed with minimax algorithm" />
+    <MESSAGE value="fixed the resetting board glich" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed the resetting board glich" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="698" y="364" key="#Notifications" timestamp="1609685260725">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="698" y="364" key="#Notifications/0.0.1920.1080@0.0.1920.1080" timestamp="1609685260725" />
     <state x="838" y="438" key="Github.ShareDialog" timestamp="1609514334931">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -212,42 +244,46 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="767" y="243" key="Github.UntrackedFilesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1609514361337" />
-    <state width="1899" height="294" key="GridCell.Tab.0.bottom" timestamp="1609674157294">
+    <state width="1899" height="169" key="GridCell.Tab.0.bottom" timestamp="1609768755707">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="294" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1609674157294" />
-    <state width="1899" height="294" key="GridCell.Tab.0.center" timestamp="1609674157292">
+    <state width="1899" height="169" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1609768755707" />
+    <state width="1899" height="169" key="GridCell.Tab.0.center" timestamp="1609768755707">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="294" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1609674157292" />
-    <state width="1899" height="294" key="GridCell.Tab.0.left" timestamp="1609674157292">
+    <state width="1899" height="169" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1609768755707" />
+    <state width="1899" height="169" key="GridCell.Tab.0.left" timestamp="1609768755707">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="294" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1609674157292" />
-    <state width="1899" height="294" key="GridCell.Tab.0.right" timestamp="1609674157292">
+    <state width="1899" height="169" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1609768755707" />
+    <state width="1899" height="169" key="GridCell.Tab.0.right" timestamp="1609768755707">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="294" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1609674157292" />
-    <state width="1899" height="494" key="GridCell.Tab.1.bottom" timestamp="1609588297287">
+    <state width="1899" height="169" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1609768755707" />
+    <state width="1899" height="397" key="GridCell.Tab.1.bottom" timestamp="1609767784343">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="494" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1609588297287" />
-    <state width="1899" height="494" key="GridCell.Tab.1.center" timestamp="1609588297287">
+    <state width="1899" height="397" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1609767784343" />
+    <state width="1899" height="397" key="GridCell.Tab.1.center" timestamp="1609767784343">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="494" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1609588297287" />
-    <state width="1899" height="494" key="GridCell.Tab.1.left" timestamp="1609588297287">
+    <state width="1899" height="397" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1609767784343" />
+    <state width="1899" height="397" key="GridCell.Tab.1.left" timestamp="1609767784343">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="494" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1609588297287" />
-    <state width="1899" height="494" key="GridCell.Tab.1.right" timestamp="1609588297287">
+    <state width="1899" height="397" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1609767784343" />
+    <state width="1899" height="397" key="GridCell.Tab.1.right" timestamp="1609767784343">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="494" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1609588297287" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1609673737540">
+    <state width="1899" height="397" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1609767784343" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1609685237107">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1609673737540" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1609685237107" />
+    <state width="968" height="548" key="XDebugger.FullValuePopup" timestamp="1609682385744">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="968" height="548" key="XDebugger.FullValuePopup/0.0.1920.1080@0.0.1920.1080" timestamp="1609682385744" />
     <state x="564" y="150" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1608973691908">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

@@ -15,12 +15,21 @@ from Variables import *
 
 class Pieces:
     class dpawn:
+        # id of the piece
         name = 'dpawn'
+        # the point it holds
         point = 1
+        # bliting the color of piece based on player
         if player == 'w':
             drawable = pygame.image.load("drawables/W_Pawn.png")
         else:
             drawable = pygame.image.load("drawables/B_Pawn.png")
+
+        # method to get possible moves
+        @staticmethod
+        def possibles(board, x, y, chance):
+
+            return Moves.Available.dpawn(board, x, y, chance)
 
     class upawn:
         name = 'upawn'
@@ -30,6 +39,10 @@ class Pieces:
         else:
             drawable = pygame.image.load("drawables/B_Pawn.png")
 
+        @staticmethod
+        def possibles(board, x, y, chance):
+            return Moves.Available.upawn(board, x, y, chance)
+
     class dking:
         name = 'dking'
         point = 200
@@ -37,6 +50,10 @@ class Pieces:
             drawable = pygame.image.load("drawables/W_King.png")
         else:
             drawable = pygame.image.load("drawables/B_King.png")
+
+        @staticmethod
+        def possibles(board, x, y, chance):
+            return Moves.Available.king(board, x, y, chance)
 
     class uking:
         name = 'uking'
@@ -46,6 +63,10 @@ class Pieces:
         else:
             drawable = pygame.image.load("drawables/B_King.png")
 
+        @staticmethod
+        def possibles(board, x, y, chance):
+            return Moves.Available.king(board, x, y, chance)
+
     class dqueen:
         name = 'dqueen'
         point = 8
@@ -53,6 +74,10 @@ class Pieces:
             drawable = pygame.image.load("drawables/W_Queen.png")
         else:
             drawable = pygame.image.load("drawables/B_Queen.png")
+
+        @staticmethod
+        def possibles(board, x, y, chance):
+            return Moves.Available.queen(board, x, y, chance)
 
     class uqueen:
         name = 'uqueen'
@@ -62,6 +87,10 @@ class Pieces:
         else:
             drawable = pygame.image.load("drawables/B_Queen.png")
 
+        @staticmethod
+        def possibles(board, x, y, chance):
+            return Moves.Available.queen(board, x, y, chance)
+
     class drook:
         name = 'drook'
         point = 5
@@ -69,6 +98,10 @@ class Pieces:
             drawable = pygame.image.load("drawables/W_Rook.png")
         else:
             drawable = pygame.image.load("drawables/B_Rook.png")
+
+        @staticmethod
+        def possibles(board, x, y, chance):
+            return Moves.Available.rook(board, x, y, chance)
 
     class urook:
         name = 'urook'
@@ -78,6 +111,10 @@ class Pieces:
         else:
             drawable = pygame.image.load("drawables/B_Rook.png")
 
+        @staticmethod
+        def possibles(board, x, y, chance):
+            return Moves.Available.rook(board, x, y, chance)
+
     class dbishop:
         name = 'dbishop'
         point = 3
@@ -85,6 +122,10 @@ class Pieces:
             drawable = pygame.image.load("drawables/W_Bishop.png")
         else:
             drawable = pygame.image.load("drawables/B_Bishop.png")
+
+        @staticmethod
+        def possibles(board, x, y, chance):
+            return Moves.Available.bishop(board, x, y, chance)
 
     class ubishop:
         name = 'ubishop'
@@ -94,6 +135,10 @@ class Pieces:
         else:
             drawable = pygame.image.load("drawables/B_Bishop.png")
 
+        @staticmethod
+        def possibles(board, x, y, chance):
+            return Moves.Available.bishop(board, x, y, chance)
+
     class dknight:
         name = 'dknight'
         point = 3
@@ -102,6 +147,13 @@ class Pieces:
         else:
             drawable = pygame.image.load("drawables/B_Knight.png")
 
+        @staticmethod
+        def possibles(board, x, y, chance):
+            try:
+                return Moves.Available.knight(board, x, y, chance)
+            except:
+                return []
+
     class uknight:
         name = 'uknight'
         point = -3
@@ -109,6 +161,15 @@ class Pieces:
             drawable = pygame.image.load("drawables/W_Knight.png")
         else:
             drawable = pygame.image.load("drawables/B_Knight.png")
+
+        @staticmethod
+        def possibles(board, x, y, chance):
+            try:
+                return Moves.Available.knight(board, x, y, chance)
+            except:
+                pass
+
+            return []
 
     ac = pygame.image.load("drawables/activated.png")
 
@@ -136,10 +197,10 @@ class Board:
             Board.board = [
                 [br, bn, bb, bq, bk, bb, bn, br],
                 [bp, bp, bp, bp, bp, bp, bp, bp],
-                [0, 0, 0, 0, 0, 0, 0, 0, ],
-                [0, 0, 0, 0, 0, 0, 0, 0, ],
-                [0, 0, 0, 0, 0, 0, 0, 0, ],
-                [0, 0, 0, 0, 0, 0, 0, 0, ],
+                [0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0],
                 [wp, wp, wp, wp, wp, wp, wp, wp],
                 [wr, wn, wb, wq, wk, wb, wn, wr]
             ]
@@ -148,10 +209,10 @@ class Board:
             Board.board = [
                 [br, bn, bb, bk, bq, bb, bn, br],
                 [bp, bp, bp, bp, bp, bp, bp, bp],
-                [0, 0, 0, 0, 0, 0, 0, 0, ],
-                [0, 0, 0, 0, 0, 0, 0, 0, ],
-                [0, 0, 0, 0, 0, 0, 0, 0, ],
-                [0, 0, 0, 0, 0, 0, 0, 0, ],
+                [0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0],
                 [wp, wp, wp, wp, wp, wp, wp, wp],
                 [wr, wn, wb, wk, wq, wb, wn, wr]
             ]
@@ -188,7 +249,7 @@ class Board:
     # this method draws the piece when we hold a piece and move it
     @staticmethod
     def draw_elevated(x, y, piece, display):
-        if piece != 0 :
+        if piece != 0:
             display.blit(piece.drawable, (x - 32,
                                           y - 32))  # we are blitting at -32 because the size of piece is 64x64 so to keep it in centre we have to do so
 
@@ -232,15 +293,11 @@ class Moves:
         @staticmethod
         def checkAvailable(board, x, y, chance):
 
-            if board[y][x] == Pieces.dpawn:
-                return Moves.Available.dpawn(board, x, y, chance)
-            elif board[y][x] == Pieces.upawn:
-                return Moves.Available.upawn(board, x, y, chance)
-
-            return []
+            # this return the pieces' inbuilt path for the available methods
+            # this helps reduce the code size
+            return board[y][x].possibles(board, x, y, chance)
 
         # this method is for the pawn residing on the down side on board
-        # this method is ready for use
         @staticmethod
         def dpawn(board, fx, fy, chance):
 
@@ -265,6 +322,7 @@ class Moves:
 
             return available
 
+        # this method is for the pawn residing on the up side on the board
         @staticmethod
         def upawn(board, fx, fy, chance):
 
@@ -286,6 +344,135 @@ class Moves:
                     if board[fy + 2][fx] == 0:
                         available.append(helper.fromIndex(fy + 2, fx))
 
+            return available
+
+        @staticmethod
+        def king(board, fx, fy, chance):
+
+            available = []
+
+            # moving the king in sides
+
+            # moving on the right
+            if fx != 7:
+                if board[fy][fx + 1] == 0 or board[fy][fx + 1] in helper.listPieces(chance, False):
+                    available.append(helper.fromIndex(fy, fx + 1))
+            # moving on the left
+            if fx != 0:
+                if board[fy][fx - 1] == 0 or board[fy][fx - 1] in helper.listPieces(chance, False):
+                    available.append(helper.fromIndex(fy, fx - 1))
+            # moving up
+            if fy != 0:
+                if board[fy - 1][fx] == 0 or board[fy - 1][fx] in helper.listPieces(chance, False):
+                    available.append(helper.fromIndex(fy - 1, fx))
+            # moving down
+            if fy != 7:
+                if board[fy + 1][fx] == 0 or board[fy + 1][fx] in helper.listPieces(chance, False):
+                    available.append(helper.fromIndex(fy + 1, fx))
+
+            # moving the king on the corners
+
+            # moving on top left
+            if fx != 0 and fy != 0:
+                if board[fy - 1][fx - 1] == 0 or board[fy - 1][fx - 1] in helper.listPieces(chance, False):
+                    available.append(helper.fromIndex(fy - 1, fx - 1))
+            # moving on top right
+            if fx != 7 and fy != 0:
+                if board[fy - 1][fx + 1] == 0 or board[fy - 1][fx + 1] in helper.listPieces(chance, False):
+                    available.append(helper.fromIndex(fy - 1, fx + 1))
+            # moving on bottom left
+            if fx != 0 and fy != 7:
+                if board[fy + 1][fx - 1] == 0 or board[fy + 1][fx - 1] in helper.listPieces(chance, False):
+                    available.append(helper.fromIndex(fy + 1, fx - 1))
+            # moving on bottom right
+            if fx != 7 and fy != 7:
+                if board[fy + 1][fx + 1] == 0 or board[fy + 1][fx + 1] in helper.listPieces(chance, False):
+                    available.append(helper.fromIndex(fy + 1, fx + 1))
+
+            return available
+
+        @staticmethod
+        def bishop(board, fx, fy, chance):
+
+            available = []
+
+            # the xoper and yoper is there to make check in all the directions
+            # these operators will chance in every look
+            for xoper in ['-', '+']:
+                for yoper in ['-', '+']:
+                    for i in range(1, 8):
+                        if xoper == '-':
+                            ffx = fx - i
+                        else:
+                            ffx = fx + i
+                        if yoper == '-':
+                            ffy = fy - i
+                        else:
+                            ffy = fy + i
+
+                        # checking if the pointer is getting out of the board
+                        if ffx < 0 or ffy < 0:
+                            break
+                        if ffx > 7 or ffy > 7:
+                            break
+                        # checking if the space is empty
+                        if board[ffy][ffx] == 0:
+                            available.append(helper.fromIndex(ffy, ffx))
+                        # checking if there is a enemy in the path
+                        elif board[ffy][ffx] in helper.listPieces(chance, False):
+                            available.append(helper.fromIndex(ffy, ffx))
+                            break
+                        # checking if the same color piece is in the path
+                        elif board[ffy][ffx] in helper.listPieces(chance, True):
+                            break
+
+            return available
+
+        @staticmethod
+        def rook(board, fx, fy, chance):
+
+            available = []
+            for x in ['+', '-']:
+                for y in [False, True]:
+                    for i in range(1, 8):
+
+                        # changing the axises and operator for efficiency of the code written
+                        if y:
+                            if x == '-':
+                                ffy = fy - i
+                                if ffy < 0:
+                                    break
+                            else:
+                                ffy = fy + i
+                                if ffy > 7:
+                                    break
+                            ffx = fx
+                        else:
+                            if x == '-':
+                                ffx = fx - i
+                                if ffx < 0:
+                                    break
+                            else:
+                                ffx = fx + i
+                                if ffx > 7:
+                                    break
+                            ffy = fy
+
+                        if board[ffy][ffx] == 0:
+                            available.append(helper.fromIndex(ffy, ffx))
+                        elif board[ffy][ffx] in helper.listPieces(chance, False):
+                            available.append(helper.fromIndex(ffy, ffx))
+                            break
+                        elif board[ffy][ffx] in helper.listPieces(chance, True):
+                            break
+
+            return available
+
+        @staticmethod
+        def queen(board, fx, fy, chance):
+            available = Moves.Available.bishop(board, fx, fy, chance)
+            for i in Moves.Available.rook(board, fx, fy, chance):
+                available.append(i)
             return available
 
 

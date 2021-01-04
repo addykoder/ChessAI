@@ -57,8 +57,6 @@ class main:
         else:
             selfs = Pieces.blacks
 
-
-
         # getting the index of the board block which is clicked
         xx, yy = helper.fromAxis(x, y)  # we have passes flipped x and y because in index it is so as done
 
@@ -103,13 +101,13 @@ class main:
     @staticmethod
     def onRkeyDown():
 
-            global chance, activatedBoard, piece, fromX, fromY, board
+        global chance, activatedBoard, piece, fromX, fromY, nextChance
 
-            activatedBoard, piece = [], 0      # here the value of piece is set to 'ig' because 0 was not working
-            fromX,fromY=0,0
+        activatedBoard, piece = [], 0  # here the value of piece is set to 'ig' because 0 was not working
+        fromX, fromY = 0, 0
 
-            chance = 'w'
-            return Board.create_raw_board()
+        chance, nextChance = 'w', 'b'
+        return Board.create_raw_board()
 
     @staticmethod
     def startGame():
@@ -133,7 +131,7 @@ class main:
                 if event.type == pygame.KEYDOWN:
                     # This method contains all code to perform key shortcuts during play
                     if event.key == pygame.K_r:
-                        board=main.onRkeyDown()
+                        board = main.onRkeyDown()
 
             main.onEveryFrame(board)
 
