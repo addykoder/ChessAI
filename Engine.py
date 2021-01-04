@@ -1,5 +1,7 @@
-from Variables import *
 from random import randint
+
+from Variables import *
+
 
 #   NOTES
 
@@ -527,7 +529,7 @@ class Ai:
 
         rnd = randint(1, limit)
 
-        giveboard=0
+        giveboard = 0
         ji = 1
 
         for i in Ai.getAllPositions(board, makeChanceOf):
@@ -540,11 +542,9 @@ class Ai:
                     return Ai.randomChance(board)
             ji += 1
 
-        if giveboard==0:
+        if giveboard == 0:
             return Ai.randomChance(board)
         return giveboard
-
-
 
 
 class helper:
@@ -595,5 +595,3 @@ class helper:
                 ast.append(j)
             board2.append(ast)
         return board2
-
-

@@ -5,7 +5,6 @@
 # importing necessary modules
 from Engine import *
 from Variables import *
-from random import randint
 
 
 class main:
@@ -86,8 +85,7 @@ class main:
             piece = 0
 
             if Play_Against == 'random':
-                board=Ai.randomChance(board)
-
+                board = Ai.randomChance(board)
 
             # swapping the variables to chance chance
             if Play_Against == "multiplayer":
@@ -115,11 +113,11 @@ class main:
         fromX, fromY = 0, 0
 
         chance, nextChance = 'w', 'b'
-        board =  Board.create_raw_board()
+        board = Board.create_raw_board()
 
     @staticmethod
     def startGame():
-        global  board, chance
+        global board, chance
         # Initializing and constructing all instantiated modules and variables
         main.initializePygame()
         # piece = Pieces(pygame, player)  # the player variable passes the main human player's color of pieces
@@ -127,7 +125,7 @@ class main:
 
         if player == 'b':
             if Play_Against == 'random':
-                board=Ai.randomChance(board)
+                board = Ai.randomChance(board)
                 chance = 'b'
             elif Play_Against == 'Ai':
                 pass
