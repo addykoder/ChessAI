@@ -111,7 +111,7 @@ class main:
 
         # Closes the pycharm window if it is checkmate
         if Play.checkCheckMate(board):
-            quit()
+            pass
 
 
     @staticmethod
