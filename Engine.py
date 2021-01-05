@@ -285,10 +285,52 @@ class Moves:
     class Available:
 
         @staticmethod
-        def checkAvailable(board, x, y, chance):
+        def checkAvailable(board, x, y, chance, tos = False):
 
             # this return the pieces' inbuilt path for the available methods
             # this helps reduce the code size
+            if tos:
+                    if player == chance:
+                        won = 'lost'
+                    elif player !=  chance:
+                        won = 'won'
+
+
+                    if chance=='w':
+                        nnchance='b'
+                    else :
+                        nnchance = 'w'
+
+
+
+
+                    toremove=[]
+                    avail = board[y][x].possibles(board, x, y, chance)
+
+                    for i in avail:
+                        board_2 = helper.copyBoard(board)
+
+                        # getting the desired location
+                        tty, ttx = helper.toIndex(i)
+
+                        # making a chance for it
+                        board_2[tty][ttx] = board_2[y][x]
+                        board_2[y][x] = 0
+
+                        # checking that if after making that chance the black has a move to kill the king
+                        for moves in Ai.getAllPositions(board_2, nnchance):
+
+                            # if it has one then it will remove it
+
+                            if Play.checkMate(moves) == won:
+
+                                if i not in toremove:
+                                    toremove.append(i)
+
+
+                    for j in toremove:
+                        avail.remove(j)
+                    return avail
             return board[y][x].possibles(board, x, y, chance)
 
         # this method is for the pawn residing on the down side on board
@@ -495,7 +537,7 @@ class Ai:
     # this methods takes the arguments chance and returns the list according to that player only
 
     @staticmethod
-    def getAllPositions(board, chance):
+    def getAllPositions(board, chance, tos = False):
         board2 = helper.copyBoard(board)
         if chance == 'w':
             avails = Pieces.whites
@@ -506,7 +548,7 @@ class Ai:
         for i in range(8):
             for j in range(8):
                 if board[i][j] in avails:
-                    available = Moves.Available.checkAvailable(board, j, i, chance)
+                    available = Moves.Available.checkAvailable(board, j, i, chance, tos)
 
                     for x in available:
                         if x != 0:
@@ -520,23 +562,27 @@ class Ai:
 
     @staticmethod
     def randomChance(board):
+        global  rec_1
         makeChanceOf = 'b'
         if player == 'b':
             makeChanceOf = 'w'
-        limit = len(Ai.getAllPositions(board, makeChanceOf)) + 1
+        limit = len(Ai.getAllPositions(board, makeChanceOf, True)) + 1
         rnd = randint(1, limit)
         giveboard = 0
         ji = 1
-        for i in Ai.getAllPositions(board, makeChanceOf):
+        for i in Ai.getAllPositions(board, makeChanceOf, True):
+
             if ji == rnd:
-                if i != board:
+                if i != helper.returnnull():
                     giveboard = i
-                else:
-                    print("now")
-                    return Ai.randomChance(board)
+                # else:
+                #
+                #     return Ai.randomChance(board)
             ji += 1
         if giveboard == 0:
-            return Ai.randomChance(board)
+            return 'mate'
+
+
         return giveboard
 
     @staticmethod
@@ -546,6 +592,14 @@ class Ai:
         else:
             # here we will pass the ai chance function
             pass
+
+    @staticmethod
+    def AiChance(board):
+        pass
+
+    @staticmethod
+    def minimax(board, maximizing, depth):
+        pass
 
 
 class helper:
@@ -596,3 +650,43 @@ class helper:
                 ast.append(j)
             board2.append(ast)
         return board2
+
+    @staticmethod
+    def returnnull():
+        pass
+
+class Play:
+    @staticmethod
+    def checkMate(board):
+
+            uk = False
+            dk = False
+            for i in board:
+                for j in i:
+                    if j == Pieces.uking:
+                        uk = True
+                    elif j == Pieces.dking:
+                        dk = True
+            if not dk :
+                return 'lost'
+            if not uk :
+                return 'won'
+            return False
+
+    @staticmethod
+    def checkCheckMate(board):
+        for avails in [Ai.getAllPositions(board,'w',True),Ai.getAllPositions(board,'b',True)]:
+
+
+
+
+            if avails == []:
+                return True
+        return False
+
+    @staticmethod
+    def checkToMate(board, chance):
+
+
+        if Ai.getAllPositions(board,chance)==board:
+            return True

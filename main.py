@@ -28,7 +28,6 @@ class main:
         # this method draws the pieces which is elevated on the position of the mouse pointer
         Board.draw_elevated(x, y, piece, display)
 
-        # print(chance)
         pygame.display.update()
 
     @staticmethod
@@ -65,7 +64,7 @@ class main:
 
         # this will make changes to the activatedBoard which shows the green dots based on available moves
         if board[y // size][x // size] in selfs:  # if the selected piece is for the activated chance
-            activatedBoard = Moves.Available.checkAvailable(board, x // size, y // size, chance)
+            activatedBoard = Moves.Available.checkAvailable(board, x // size, y // size, chance, True)
 
         # getting the piece elevated and hold in hand
         fromx, fromy = xx, yy  # this variable holds the index from where we have taken the piece up
@@ -84,8 +83,15 @@ class main:
             board[ty][tx] = piece
             piece = 0
 
+
+
+
             if Play_Against == 'rnd':
-                board = Ai.randomChance(board)
+                if Ai.makeChance(board) != 'mate':
+
+                    board = Ai.makeChance(board)
+                else :
+                    pass
 
             # swapping the variables to chance chance
             else:
@@ -103,7 +109,10 @@ class main:
 
         # prints the point in board
         # print(Board.returnPoints(board))
-        print(Board.returnPoints(board))
+        if Play.checkCheckMate(board):
+            quit()
+
+
     @staticmethod
     def onRkeyDown():
 
@@ -124,12 +133,8 @@ class main:
         board = Board.create_raw_board()  # getting the raw initial board in the board variable
 
         if player == 'b':
-            if Play_Against == 'rnd':
-                board = Ai.randomChance(board)
-                chance = 'b'
-            elif Play_Against == 'ai':
-                pass
-                chance = 'b'
+
+            Ai.makeChance(board)
 
         while True:
 
