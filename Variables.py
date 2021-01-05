@@ -1,10 +1,9 @@
 import pygame
 
-
 # playing settings
 # this variable tells that whom against do you want to play
-# random, AI ( in development ) or multiplayer
-Play_Against = 'multiplayer'
+# rnd ( random ), ai ( in development ) or mp(multiplayer)
+Play_Against = 'rnd'
 
 #   This class has all the variables used in the full project you can edit these
 #   variables as per your need to see changes in your game

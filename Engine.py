@@ -546,6 +546,14 @@ class Ai:
             return Ai.randomChance(board)
         return giveboard
 
+    @staticmethod
+    def makeChance(board):
+        if Play_Against == 'rnd':
+            return Ai.randomChance(board)
+        else:
+            # here we will pass the ai chance function
+            pass
+
 
 class helper:
     # returns board indexes starting from 0

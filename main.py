@@ -84,11 +84,12 @@ class main:
             board[ty][tx] = piece
             piece = 0
 
-            if Play_Against == 'random':
+            if Play_Against == 'rnd':
+                print("got")
                 board = Ai.randomChance(board)
 
             # swapping the variables to chance chance
-            if Play_Against == "multiplayer":
+            else:
                 chance, nextChance = nextChance, chance
 
         else:
@@ -124,10 +125,10 @@ class main:
         board = Board.create_raw_board()  # getting the raw initial board in the board variable
 
         if player == 'b':
-            if Play_Against == 'random':
+            if Play_Against == 'rnd':
                 board = Ai.randomChance(board)
                 chance = 'b'
-            elif Play_Against == 'Ai':
+            elif Play_Against == 'ai':
                 pass
                 chance = 'b'
 
