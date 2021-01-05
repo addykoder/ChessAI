@@ -1,5 +1,6 @@
 import pygame
 
+
 # playing settings
 # this variable tells that whom against do you want to play
 # random, AI ( in development ) or multiplayer
