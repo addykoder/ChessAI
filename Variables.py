@@ -47,5 +47,9 @@ down = 0
 up = 0
 
 # recursion limits
-
 rec_1 = 10
+
+# sounds
+pygame.init()
+
+
