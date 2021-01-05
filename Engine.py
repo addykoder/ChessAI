@@ -520,20 +520,14 @@ class Ai:
 
     @staticmethod
     def randomChance(board):
-
         makeChanceOf = 'b'
         if player == 'b':
             makeChanceOf = 'w'
-
         limit = len(Ai.getAllPositions(board, makeChanceOf)) + 1
-
         rnd = randint(1, limit)
-
         giveboard = 0
         ji = 1
-
         for i in Ai.getAllPositions(board, makeChanceOf):
-
             if ji == rnd:
                 if i != board:
                     giveboard = i
@@ -541,7 +535,6 @@ class Ai:
                     print("now")
                     return Ai.randomChance(board)
             ji += 1
-
         if giveboard == 0:
             return Ai.randomChance(board)
         return giveboard

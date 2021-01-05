@@ -85,7 +85,6 @@ class main:
             piece = 0
 
             if Play_Against == 'rnd':
-                print("got")
                 board = Ai.randomChance(board)
 
             # swapping the variables to chance chance
@@ -104,7 +103,7 @@ class main:
 
         # prints the point in board
         # print(Board.returnPoints(board))
-
+        print(Board.returnPoints(board))
     @staticmethod
     def onRkeyDown():
 
