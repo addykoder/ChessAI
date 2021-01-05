@@ -573,8 +573,13 @@ class Ai:
         for i in Ai.getAllPositions(board, makeChanceOf, True):
 
             if ji == rnd:
-                if i != helper.returnnull():
-                    giveboard = i
+
+                if i != board:
+                    if i != helper.returnnull():
+                        giveboard = i
+                elif i == board:
+                    return Ai.randomChance(board)
+
                 # else:
                 #
                 #     return Ai.randomChance(board)

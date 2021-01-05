@@ -19,8 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5f2bb15-a023-4660-9638-e4efec711dd9" name="Default Changelist" comment="reformatted the code with some efficiency changes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="b5f2bb15-a023-4660-9638-e4efec711dd9" name="Default Changelist" comment="added the checkmate feature that can detect check mate one move prior">
       <change beforePath="$PROJECT_DIR$/Engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/Engine.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/Variables.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -238,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609846203208</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added the checkmate feature that can detect check mate one move prior">
+      <created>1609857213862</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1609857213862</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -275,7 +281,8 @@
     <MESSAGE value="added all the player's moves except for the knight and fixed some gliches." />
     <MESSAGE value="added every player's move and created a method to make random chances on the board" />
     <MESSAGE value="reformatted the code with some efficiency changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="reformatted the code with some efficiency changes" />
+    <MESSAGE value="added the checkmate feature that can detect check mate one move prior" />
+    <option name="LAST_COMMIT_MESSAGE" value="added the checkmate feature that can detect check mate one move prior" />
   </component>
   <component name="WindowStateProjectService">
     <state x="698" y="364" key="#Notifications" timestamp="1609685260725">
@@ -290,22 +297,22 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="767" y="243" key="Github.UntrackedFilesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1609514361337" />
-    <state width="1899" height="308" key="GridCell.Tab.0.bottom" timestamp="1609856962431">
+    <state width="1899" height="308" key="GridCell.Tab.0.bottom" timestamp="1609857367491">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="308" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1609856962431" />
-    <state width="1899" height="308" key="GridCell.Tab.0.center" timestamp="1609856962431">
+    <state width="1899" height="308" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1609857367491" />
+    <state width="1899" height="308" key="GridCell.Tab.0.center" timestamp="1609857367491">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="308" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1609856962431" />
-    <state width="1899" height="308" key="GridCell.Tab.0.left" timestamp="1609856962431">
+    <state width="1899" height="308" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1609857367491" />
+    <state width="1899" height="308" key="GridCell.Tab.0.left" timestamp="1609857367491">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="308" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1609856962431" />
-    <state width="1899" height="308" key="GridCell.Tab.0.right" timestamp="1609856962431">
+    <state width="1899" height="308" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1609857367491" />
+    <state width="1899" height="308" key="GridCell.Tab.0.right" timestamp="1609857367491">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="308" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1609856962431" />
+    <state width="1899" height="308" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1609857367491" />
     <state width="1899" height="397" key="GridCell.Tab.1.bottom" timestamp="1609854795935">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

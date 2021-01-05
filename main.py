@@ -107,8 +107,9 @@ class main:
         showNotifier = False
         activatedBoard = []
 
-        # prints the point in board
-        # print(Board.returnPoints(board))
+
+
+        # Closes the pycharm window if it is checkmate
         if Play.checkCheckMate(board):
             quit()
 
