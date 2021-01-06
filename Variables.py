@@ -1,5 +1,5 @@
 import pygame
-
+from playsound import playsound
 # playing settings
 # this variable tells that whom against do you want to play
 # rnd ( random ), ai ( in development ) or mp(multiplayer)
@@ -50,6 +50,8 @@ up = 0
 rec_1 = 10
 
 # sounds
-pygame.init()
+
+
+
 
 

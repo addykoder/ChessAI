@@ -695,3 +695,14 @@ class Play:
 
         if Ai.getAllPositions(board,chance)==board:
             return True
+
+
+
+
+def play(put):
+    if put:
+        playsound("Sounds/beat21.mp3")
+    else :
+         playsound("Sounds/beat22.mp3")
+
+

@@ -5,6 +5,7 @@
 # importing necessary modules
 from Engine import *
 from Variables import *
+import threading
 
 
 class main:
@@ -73,6 +74,9 @@ class main:
 
         showNotifier = True
 
+        # playing sound effect for holding a piece
+        x = threading.Thread(target=play, args=(True,))
+        x.start()
     @staticmethod
     def onMouseUp(x, y):
         global piece, showNotifier, activatedBoard, fromx, fromy, chance, nextChance, board
@@ -82,6 +86,9 @@ class main:
         if helper.fromIndex(ty, tx) in activatedBoard:
             board[ty][tx] = piece
             piece = 0
+            # playing the sound for putting the piece
+            x = threading.Thread(target=play, args=(False,))
+            x.start()
 
 
 
@@ -106,6 +113,7 @@ class main:
 
         showNotifier = False
         activatedBoard = []
+
 
 
 
