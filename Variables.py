@@ -1,9 +1,10 @@
 import pygame
+from copy import deepcopy
 from playsound import playsound
 # playing settings
 # this variable tells that whom against do you want to play
 # rnd ( random ), ai ( in development ) or mp(multiplayer)
-Play_Against = 'mp'
+Play_Against = 'ai'
 
 #   This class has all the variables used in the full project you can edit these
 #   variables as per your need to see changes in your game
@@ -51,6 +52,7 @@ rec_1 = 10
 
 # sounds
 
+AIboard = []
 
 
 

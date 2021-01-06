@@ -6,6 +6,7 @@
 from Engine import *
 from Variables import *
 import threading
+from time import time
 
 
 class main:
@@ -93,12 +94,12 @@ class main:
 
 
 
-            if Play_Against == 'rnd':
-                if Ai.makeChance(board) != 'mate':
+            if Play_Against == 'ai':
+                board_2 = helper.copyBoard(board)
+                board = Ai.AiChance(board,chance)
+                if board== board_2:
+                    chance,nextChance = nextChance,chance
 
-                    board = Ai.makeChance(board)
-                else :
-                    pass
 
             # swapping the variables to chance chance
             else:
@@ -118,8 +119,10 @@ class main:
 
 
         # Closes the pycharm window if it is checkmate
-        if Play.checkCheckMate(board):
-            pass
+        if Play.checkCheckMate(board,chance) == 1:
+            print("White won")
+        elif Play.checkCheckMate(board,chance) == 2:
+            print("black won")
 
 
     @staticmethod
@@ -140,6 +143,12 @@ class main:
         main.initializePygame()
         # piece = Pieces(pygame, player)  # the player variable passes the main human player's color of pieces
         board = Board.create_raw_board()  # getting the raw initial board in the board variable
+
+        t=time()
+        pass
+        print(time()-t)
+
+
 
         if player == 'b':
 

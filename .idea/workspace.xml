@@ -19,15 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5f2bb15-a023-4660-9638-e4efec711dd9" name="Default Changelist" comment="added the sound effects">
-      <change afterPath="$PROJECT_DIR$/Sounds/beat21.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sounds/beat22.mp3" afterDir="false" />
+    <list default="true" id="b5f2bb15-a023-4660-9638-e4efec711dd9" name="Default Changelist" comment="added the sound effects and made function to play them on their assigned times">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/Engine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sounds/beat1.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sounds/beat2.wav" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/Variables.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,8 +129,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.Engine" />
         <item itemvalue="Python.test" />
+        <item itemvalue="Python.Engine" />
       </list>
     </recent_temporary>
   </component>
@@ -286,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609860034153</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="added the sound effects and made function to play them on their assigned times">
+      <created>1609934216900</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1609934216900</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -327,7 +331,8 @@
     <MESSAGE value="fixed the random bot gliches" />
     <MESSAGE value="minor change in Variables.py" />
     <MESSAGE value="added the sound effects" />
-    <option name="LAST_COMMIT_MESSAGE" value="added the sound effects" />
+    <MESSAGE value="added the sound effects and made function to play them on their assigned times" />
+    <option name="LAST_COMMIT_MESSAGE" value="added the sound effects and made function to play them on their assigned times" />
   </component>
   <component name="WindowStateProjectService">
     <state x="698" y="364" key="#Notifications" timestamp="1609685260725">
@@ -342,22 +347,22 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="767" y="243" key="Github.UntrackedFilesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1609514361337" />
-    <state width="1899" height="308" key="GridCell.Tab.0.bottom" timestamp="1609934109378">
+    <state width="1899" height="307" key="GridCell.Tab.0.bottom" timestamp="1609946743427">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="308" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1609934109378" />
-    <state width="1899" height="308" key="GridCell.Tab.0.center" timestamp="1609934109378">
+    <state width="1899" height="307" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1609946743427" />
+    <state width="1899" height="307" key="GridCell.Tab.0.center" timestamp="1609946743427">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="308" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1609934109378" />
-    <state width="1899" height="308" key="GridCell.Tab.0.left" timestamp="1609934109378">
+    <state width="1899" height="307" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1609946743427" />
+    <state width="1899" height="307" key="GridCell.Tab.0.left" timestamp="1609946743427">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="308" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1609934109378" />
-    <state width="1899" height="308" key="GridCell.Tab.0.right" timestamp="1609934109378">
+    <state width="1899" height="307" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1609946743427" />
+    <state width="1899" height="307" key="GridCell.Tab.0.right" timestamp="1609946743427">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="308" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1609934109378" />
+    <state width="1899" height="307" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1609946743427" />
     <state width="1899" height="397" key="GridCell.Tab.1.bottom" timestamp="1609854795935">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
