@@ -3,6 +3,7 @@ import threading
 
 from Variables import *
 from time import time
+from numba import jit
 
 
 
@@ -655,7 +656,7 @@ class Ai:
         for positions in Ai.getAllPositions2(board,aicolor):
 
 
-            score = Ai.minimax(positions, True, 2, chance, -1000, 1000)
+            score = Ai.minimax(positions, True, 3, chance, -1000, 1000)
 
 
             # Getting all the positions and scores in the lists
@@ -763,6 +764,7 @@ class helper:
     @staticmethod
     def copyBoard(board):
         board2 = []
+
         if board != 0:
             for i in board:
                 ast = []
@@ -770,6 +772,10 @@ class helper:
                     ast.append(j)
                 board2.append(ast)
         return board2
+
+    @staticmethod
+    def copyBoard1(boards):
+        return deepcopy(boards)
 
     @staticmethod
     def returnnull():
