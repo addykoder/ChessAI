@@ -96,6 +96,7 @@ class main:
 
             if Play_Against == 'ai':
                 board_2 = helper.copyBoard(board)
+                pygame.display.update()
                 board = Ai.AiChance(board,chance)
                 if board== board_2:
                     chance,nextChance = nextChance,chance
@@ -152,7 +153,7 @@ class main:
 
         if player == 'b':
 
-            Ai.makeChance(board)
+            Ai.makeChance(board,chance)
 
         while True:
 
