@@ -656,7 +656,7 @@ class Ai:
         for positions in Ai.getAllPositions2(board,aicolor):
 
 
-            score = Ai.minimax(positions, True, 0, chance, -1000, 1000)
+            score = Ai.minimax(positions, True, 3, chance, -1000, 1000)
 
 
             # Getting all the positions and scores in the lists
