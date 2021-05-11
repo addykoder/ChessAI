@@ -1,2 +1,3 @@
-this is a chess engine which is in development 
-later this chess engine will have a ai to play with.
+a chess project with an ai in it.
+you can play with the AI
+however it is not so good with the depth.
